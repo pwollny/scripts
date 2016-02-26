@@ -1,0 +1,5 @@
+#!/bin/bash
+## size 900x597 = (537300@ )
+mkdir ../m900
+for k in $(ls *.JPG); do convert $k -resize 537300@ -quality 80 ../m900/$k-m900.jpg; done
+

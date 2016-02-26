@@ -1,0 +1,17 @@
+#!/bin/bash
+
+olddns=$(cat /etc/resolv.conf)
+mv /etc/resolv.conf /etc/resolv.conf.old
+cp /home/pit/scripts/opndns.resolv.conf /etc/resolv.conf
+newdns=$(cat /etc/resolv.conf)
+
+notify-send "DNS is now at OPENDNS and changed FROM: 
+________________________
+$olddns 
+________________________
+
+TO: 
+________________________
+$newdns
+________________________"
+

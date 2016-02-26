@@ -1,0 +1,6 @@
+#!/bin/sh
+
+### set VGA1 as primary display ###
+
+xrandr --output VGA1 --primary
+

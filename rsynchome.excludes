@@ -1,0 +1,17 @@
+# following excludes will be skipped on syncing /home/pit > Backup1/home/pit
+~$*.*
+.~lock.*.*
+*.dropbox
+.dropbox.cache/*
+#*sonderzeichen*
+@@_*
+dload/*
+pics/*
+tmp/*
+.cache/*
+.local/share/akonadi/*
+
+
+
+
+

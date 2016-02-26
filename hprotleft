@@ -1,0 +1,18 @@
+#!/bin/sh 
+
+#    -rotate to the left 
+    xrandr -o left 
+#    xsetwacom set $stylus rotate CCW 
+    xsetwacom set 'Wacom ISDv4 E3 Pen stylus' rotate CCW
+#   xsetwacom set 'Wacom ISDv4 E3 Pen stylus' Button 3 3
+#    xsetwacom set '$touch' rotate CCW 
+xsetwacom set 'Wacom ISDv4 E3 Finger touch' rotate CCW
+#    xsetwacom set $eraser rotate CCW 
+xsetwacom set 'Wacom ISDv4 E3 Pen eraser' rotate CCW
+#xsetwacom set 'Wacom ISDv4 E3 Pen eraser' Button 1 2
+
+# xinput set-prop 'SynPS/2 Synaptics TouchPad' 'Device Enabled' false
+
+synclient TouchpadOff=1
+
+ln -sf /home/pit/scripts/lastrot /home/pit/scripts/nextrot

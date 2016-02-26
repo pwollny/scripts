@@ -1,0 +1,9 @@
+# following excludes will be skipped on syncing drbx > bckup
+~$*.*
+.~lock.*.*
+*.dropbox
+.dropbox.cache/*
+#*sonderzeichen*
+@@_*
+
+

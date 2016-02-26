@@ -1,0 +1,9 @@
+#!/bin/sh
+rm /etc/hosts
+ln -s /etc/hosts.ext /etc/hosts
+echo "hosts file is now:"
+
+cat /etc/hosts
+
+echo "done"
+

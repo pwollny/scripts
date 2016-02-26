@@ -1,0 +1,12 @@
+#!/bin/sh
+synclient TapButton1=1
+synclient RBCornerButton=3
+synclient RTCornerButton=2
+synclient HorizEdgeScroll=1
+synclient VertEdgeScroll=1
+
+#xsetwacom set 'Wacom ISDv4 E3 Pen stylus' Button2 3
+#xsetwacom set 'Wacom ISDv4 E3 Pen eraser' Button1 2
+
+#xhost +
+

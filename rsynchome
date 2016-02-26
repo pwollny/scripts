@@ -1,0 +1,4 @@
+#!/bin/sh
+rsync -r -t -p -o -g -v -a --progress --exclude-from "/home/pit/scripts/rsynchome.excludes" -u -i -s -h  --log-file="/home/pit/rsynchome.log" /home/pit/ /media/pit/Backup01/bckup/home/pit/;
+
+

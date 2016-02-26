@@ -1,0 +1,6 @@
+#!/bin/sh
+
+### set LVDS1 as primary display ###
+
+xrandr --output LVDS1 --primary
+

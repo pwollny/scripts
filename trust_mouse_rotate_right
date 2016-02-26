@@ -1,0 +1,4 @@
+#!/bin/bash
+xinput --set-int-prop "MLK Trust Mouse 15313" "Evdev Axes Swap" 8 1 
+xinput --set-int-prop "MLK Trust Mouse 15313" "Evdev Axis Inversion" 8 0 1
+

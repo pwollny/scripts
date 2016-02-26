@@ -1,0 +1,15 @@
+#!/bin/sh 
+
+#    turn off the tablett 
+
+#    xsetwacom set 'Wacom ISDv4 E3 Pen stylus' rotate CW
+#    xsetwacom set 'Wacom ISDv4 E3 Pen stylus' Button2 3
+#    xsetwacom set '$touch' rotate CCW 
+xsetwacom set 'Wacom ISDv4 E3 Finger touch' touch off
+#    xsetwacom set $eraser rotate CCW 
+#xsetwacom set 'Wacom ISDv4 E3 Pen eraser' rotate CW
+#xsetwacom set 'Wacom ISDv4 E3 Pen eraser' Button1 2
+
+
+
+

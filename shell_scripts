@@ -1,0 +1,14 @@
+### SHELL Scripts ###
+
+for k in $(ls *s1.jpg); do rm $k; done
+
+## size 700x525 = (367500@ )
+for k in $(ls *.JPG); do convert $k -resize 367500@ -quality 80 ./s2/$k-s2.jpg; done
+
+## remplacer les espaces par "_"
+
+for i in *\ *; do mv "$i" `echo $i | tr " " "_"`; done
+
+### MAJ en min
+
+tr A-Z a-z

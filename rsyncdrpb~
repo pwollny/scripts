@@ -1,0 +1,65 @@
+#!/bin/bash
+
+VERT="\\033[1;32m" 
+NORMAL="\\033[0;39m" 
+ROUGE="\\033[1;31m" 
+ROSE="\\033[1;35m" 
+BLEU="\\033[1;34m" 
+BLANC="\\033[0;02m" 
+BLANCLAIR="\\033[1;08m" 
+JAUNE="\\033[1;33m" 
+CYAN="\\033[1;36m"
+
+# simulation
+Dr='echo -e "$CYAN""########### SIMULATING copy to backup ###########\n""$NORMAL";
+               echo -e "reading excludes from rsyncdrpb.excludes:\n";
+               cat /home/pit/scripts/rsyncdrpb.excludes;
+               echo -e "done,\n run now\n";
+               rsync -n -r -t -p -o -g -v --progress --exclude-from "/home/pit/scripts/rsyncdrpb.excludes" -u -i -s --log-file="/var/log/rsyncdrpb.log" /home/pit/Dropbox/ /home/pit/DropBoxWork/;
+               echo -e "$BLEU""\ndone SIMULATION DB --> DBW""$NORMAL";
+               echo "";
+               echo -e "$CYAN""############ SIMULATING copy to DB #############""$NORMAL";
+               echo "";
+               echo -e "reading excludes from rsyncdrpb_bckup.excludes:\n";
+               cat /home/pit/scripts/rsyncdrpb_bckup.excludes;
+               echo -e "done,\n run now\n";
+               rsync -n -r -t -p -o -g -v --progress --exclude-from "/home/pit/scripts/rsyncdrpb_bckup.excludes" -u -i -s --log-file="/var/log/rsyncdrpb.log" /home/pit/DropBoxWork/ /home/pit/Dropbox/;
+               echo -e "$BLEU""\ndone SIMULATION DB <-- DBW""$NORMAL";'
+
+# This is HOT! NO simulation!
+Hr='echo -e "$ROUGE""########### starting copy to backup for REAL! ###########\n""$NORMAL";
+               echo -e "reading excludes from rsyncdrpb.excludes:\n";
+               cat /home/pit/scripts/rsyncdrpb.excludes;
+               echo -e "done,\n run now\n";
+               rsync -r -t -p -o -g -v --progress --exclude-from ''/home/pit/scripts/rsyncdrpb.excludes'' -u -i -s --log-file=''/var/log/rsyncdrpb.log'' /home/pit/Dropbox/ /home/pit/DropBoxWork/;
+               echo -e "$CYAN""\ndone DB --> DBW""$NORMAL";
+               echo "";
+               echo -e "$ROUGE""############ starting for copy to DB for REAL! #############""$NORMAL";
+               echo "";
+               echo -e "reading excludes from rsyncdrpb_bckup.excludes:\n";
+               cat /home/pit/scripts/rsyncdrpb_bckup.excludes;
+               echo -e "done,\n run now\n";
+               rsync -r -t -p -o -g -v --progress --exclude-from ''/home/pit/scripts/rsyncdrpb_bckup.excludes'' -u -i -s --log-file=''/var/log/rsyncdrpb.log'' /home/pit/DropBoxWork/ /home/pit/Dropbox/;
+               echo -e "$CYAN""\ndone DB <-- DBW\n""$NORMAL";'
+
+echo -e "$JAUNE" ""
+
+while true; do
+    read -p "You really want to do it HOT (Y) or Dry (n)?" dr;
+echo -e ""
+    case $dr in
+        [nN]*) eval ${Dr}; break;;
+        [YO]*) eval ${Hr}; break;;
+        *) echo -e "$VERT" "Doing DryRun!\n"; eval ${Dr}; break;;
+    esac
+done
+echo -e "\nLes tailles des dossiers Dropbox et DropBoxWork sont respectivement:\n""$CYAN"; du -hs '/home/pit/Dropbox'; echo -e "$BLEU"; du -hs '/home/pit/DropBoxWork';
+echo ""
+
+
+
+
+
+
+
+

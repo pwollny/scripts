@@ -1,0 +1,28 @@
+#!/bin/sh -e
+# to be placed in /etc/network/if-up.d/
+# # so you can act depending on the wifi ssid
+
+#if [ -z "$1" ]; then
+# echo "$0: called with no interface" 1>&2
+# exit 1;
+#fi
+ myssid=`iwconfig | grep wlan0 `
+ case "$myssid" in
+ *Livebox-a094*)
+ #do something
+ #echo "home"
+ exec /home/pit/scripts/hosts_home
+ #notify-send "Hosts are on HOME"
+ ;;
+ *TREND*)
+ #echo "t'es au garage"
+ exec /home/pit/scripts/hosts_home
+ #notify-send "Hosts are on Home"
+ ;;
+ *)
+  #do something else
+  #echo "elsewhere"
+  exec /home/pit/scripts/hosts_ext
+  #notify-send "Hosts are on EXTERNAL"
+   ;;
+   esac

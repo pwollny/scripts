@@ -1,0 +1,60 @@
+#!/bin/sh 
+
+# Find the line in "xrandr -q --verbose" output that contains current screen orientation and "strip" out current orientation. 
+
+rotation="$(xrandr -q --verbose | grep 'connected' | egrep -o  '\) (normal|left|inverted|right) \(' | egrep -o '(normal|left|inverted|right)')" 
+
+# Using current screen orientation proceed to rotate screen and input tools. 
+
+#stylus="Wacom ISDv4 E3 Pen"
+#touch=Wacom ISDv4 E3 Finger
+#eraser="Wacom ISDv4 E3 Pen eraser"
+
+case "$rotation" in 
+    inverted) 
+#    -rotate to the left 
+    xrandr -o left 
+#    xsetwacom set $stylus rotate CCW 
+    xsetwacom set 'Wacom ISDv4 E3 Pen' rotate CCW
+#    xsetwacom set '$touch' rotate CCW 
+xsetwacom set 'Wacom ISDv4 E3 Finger' rotate CCW
+#    xsetwacom set $eraser rotate CCW 
+xsetwacom set 'Wacom ISDv4 E3 Pen eraser' rotate CCW
+    ;; 
+
+#    -rotate to inverted 
+    right) 
+    xrandr -o inverted 
+#    xsetwacom set $stylus rotate HALF 
+#    xsetwacom set $touch rotate HALF 
+#    xsetwacom set $eraser rotate HALF 
+
+    xsetwacom set 'Wacom ISDv4 E3 Pen' rotate HALF
+    xsetwacom set 'Wacom ISDv4 E3 Finger' rotate HALF
+    xsetwacom set 'Wacom ISDv4 E3 Pen eraser' rotate HALF
+    ;; 
+
+#    -rotate to the right 
+    normal) 
+    xrandr -o right 
+#    xsetwacom set $stylus rotate  CW 
+#    xsetwacom set $touch rotate CW 
+#    xsetwacom set $eraser rotate CW  
+
+    xsetwacom set 'Wacom ISDv4 E3 Pen' rotate CW
+    xsetwacom set 'Wacom ISDv4 E3 Finger' rotate CW
+    xsetwacom set 'Wacom ISDv4 E3 Pen eraser' rotate CW
+    ;; 
+
+#    -rotate to normal 
+    left)
+    xrandr -o normal 
+#    xsetwacom set $stylus rotate NONE 
+#   xsetwacom set $touch rotate NONE 
+#   xsetwacom set $eraser rotate NONE 
+
+    xsetwacom set 'Wacom ISDv4 E3 Pen' rotate NONE
+    xsetwacom set 'Wacom ISDv4 E3 Finger' rotate NONE
+    xsetwacom set 'Wacom ISDv4 E3 Pen eraser' rotate NONE
+    ;; 
+esac

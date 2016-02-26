@@ -1,0 +1,10 @@
+#!/bin/bash
+
+### run an xterm in a new $HOME environement ###
+### (/home/pit/pit2) and start Firefox nightly ####
+
+xterm -e 'echo $HOME; HOME=/home/pit/pit2;echo $HOME;
+/home/pit/dload/firefox/firefox'
+
+
+

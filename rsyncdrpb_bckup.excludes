@@ -1,0 +1,11 @@
+# following excludes will be skipped on syncing bckup > drbx
+~$*.*
+.~lock.*.*
+*.dropbox
+.dropbox.cache/*
+#*sonderzeichen*
+@@_*
+Sapie/Pays Basque/*
+Sapie/plie_limousin_pit/PLIE_Limousin_part/*
+
+

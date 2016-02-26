@@ -1,0 +1,16 @@
+#!/bin/sh 
+
+#    -rotate to the right 
+
+    xrandr -o right 
+#    xsetwacom set $stylus rotate  CW 
+#    xsetwacom set $touch rotate CW 
+#    xsetwacom set $eraser rotate CW  
+
+    xsetwacom set 'Wacom ISDv4 E3 Pen stylus' rotate CW
+    xsetwacom set 'Wacom ISDv4 E3 Finger touch' rotate CW
+    xsetwacom set 'Wacom ISDv4 E3 Pen eraser' rotate CW
+
+# xinput set-prop 'SynPS/2 Synaptics TouchPad' 'Device Enabled' false
+
+synclient TouchpadOff=1

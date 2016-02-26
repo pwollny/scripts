@@ -1,0 +1,11 @@
+#!/bin/bash
+
+### run an xterm in a new $HOME environement (/home/pit/pit2) ####
+
+xterm -e 'echo $HOME; HOME=/home/pit/pit2;echo $HOME; bash'&
+
+
+
+
+
+
